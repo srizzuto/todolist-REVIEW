@@ -1,0 +1,26 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srizzuto/Webpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srizzuto/Webpack/issues"
+  },
+  "homepage": "https://github.com/srizzuto/Webpack#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  }
+}
