@@ -1,4 +1,4 @@
-# To_Do_list
+# To-do list
 
 > In this project, I build a simple To do list using javascript and webpack.
 > 
