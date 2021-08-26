@@ -1,6 +1,8 @@
 import './style.css';
 import { isCompleted, isDone } from './status';
 
+const storage = window.localStorage;
+
 const task = [
   {
     description: 'Hello',
@@ -9,7 +11,7 @@ const task = [
   },
   {
     description: 'Everyone',
-    completed: true,
+    completed: false,
     index: 2,
   },
   {
@@ -19,11 +21,7 @@ const task = [
   },
 ];
 
-const storage = window.localStorage;
-const newTaskStorage = storage.setItem('stored', JSON.stringify(task));
-const taskStorage = JSON.parse(storage.getItem('stored'));
-
-function render() {
+function render(taskStorage) {
   taskStorage.forEach((tsk) => {
     const { description } = tsk;
     const taskList = document.getElementById('task-list');
@@ -55,11 +53,11 @@ function render() {
 }
 
 function checkStorage() {
+  const taskStorage = JSON.parse(storage.getItem('stored'));
   if (taskStorage === null) {
-    return newTaskStorage;
+    storage.setItem('stored', JSON.stringify(task));
   }
   return taskStorage;
 }
 
-checkStorage();
-render();
+render(checkStorage());
