@@ -17,6 +17,10 @@ li div {
   padding: 5px;
 }
 
+i {
+  color: gray;
+}
+
 li i {
   color: lightgray;
 }
@@ -25,10 +29,6 @@ input {
   border: none;
   font-style: italic;
   font-size: 14px;
-}
-
-i {
-  color: gray;
 }
 
 .p5 {
