@@ -1,18 +1,46 @@
-import _ from 'lodash';
-import printMe from './print.js';
+import './style.css';
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+const task = [
+  {
+    description: 'Hello',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: 'Everyone',
+    completed: true,
+    index: 2,
+  },
+  {
+    description: 'Welcome',
+    completed: false,
+    index: 3,
+  },
+];
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+function render() {
+  task.forEach((tsk) => {
+    const { description } = tsk;
+    const taskList = document.getElementById('task-list');
+    const newLi = document.createElement('li');
+    const pContainer = document.createElement('div');
+    const icon = document.createElement('i');
+    const newP = document.createElement('p');
+    const checkbox = document.createElement('input');
 
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
+    checkbox.type = 'checkbox';
+    checkbox.id = 'checkbox';
+    icon.className = 'fas fa-ellipsis-v p5';
+    newLi.className = 'border-bottom just-between';
 
-  element.appendChild(btn);
+    newP.innerHTML = description;
 
-  return element;
+    pContainer.appendChild(checkbox);
+    pContainer.appendChild(newP);
+    newLi.appendChild(pContainer);
+    newLi.appendChild(icon);
+    taskList.appendChild(newLi);
+  });
 }
 
-document.body.appendChild(component());
+render();
