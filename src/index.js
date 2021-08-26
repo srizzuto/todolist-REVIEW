@@ -56,6 +56,7 @@ function checkStorage() {
   const taskStorage = JSON.parse(storage.getItem('stored'));
   if (taskStorage === null) {
     storage.setItem('stored', JSON.stringify(task));
+    return JSON.parse(storage.getItem('stored'));
   }
   return taskStorage;
 }
