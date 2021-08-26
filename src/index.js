@@ -1,4 +1,5 @@
 import './style.css';
+import { isCompleted, isDone } from './status';
 
 const task = [
   {
@@ -18,8 +19,12 @@ const task = [
   },
 ];
 
+const storage = window.localStorage;
+const newTaskStorage = storage.setItem('stored', JSON.stringify(task));
+const taskStorage = JSON.parse(storage.getItem('stored'));
+
 function render() {
-  task.forEach((tsk) => {
+  taskStorage.forEach((tsk) => {
     const { description } = tsk;
     const taskList = document.getElementById('task-list');
     const newLi = document.createElement('li');
@@ -30,6 +35,7 @@ function render() {
 
     checkbox.type = 'checkbox';
     checkbox.id = 'checkbox';
+    checkbox.checked = isDone(tsk);
     icon.className = 'fas fa-ellipsis-v p5';
     newLi.className = 'border-bottom just-between';
 
@@ -40,7 +46,20 @@ function render() {
     newLi.appendChild(pContainer);
     newLi.appendChild(icon);
     taskList.appendChild(newLi);
+
+    checkbox.addEventListener('click', () => {
+      isCompleted(checkbox.checked, tsk);
+      storage.setItem('stored', JSON.stringify(taskStorage));
+    });
   });
 }
 
+function checkStorage() {
+  if (taskStorage === null) {
+    return newTaskStorage;
+  }
+  return taskStorage;
+}
+
+checkStorage();
 render();
