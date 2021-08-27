@@ -10,6 +10,7 @@
 li {
   width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
 li div {
@@ -23,6 +24,12 @@ i {
 
 li i {
   color: lightgray;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 input {
