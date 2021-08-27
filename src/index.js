@@ -46,7 +46,6 @@ function render(taskStorage) {
 
     newP.addEventListener('click', () => {
       newP.setAttribute('contenteditable', 'true');
-      edit(taskStorage, newP.innerText);
     });
 
     newP.addEventListener('keypress', (e) => {
