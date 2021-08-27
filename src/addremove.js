@@ -19,3 +19,9 @@ export const removeChecked = (tasks) => {
   tasks = tasks.filter((task) => task.completed === false);
   updateIndex(tasks);
 };
+
+export const edit = (task, description) => {
+  const tasks = JSON.parse(window.localStorage.getItem('stored'));
+  tasks[task.index - 1].description = description;
+  window.localStorage.setItem('stored', JSON.stringify(tasks));
+};

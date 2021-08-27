@@ -1,6 +1,8 @@
 import './style.css';
 import { isCompleted, isDone } from './status';
-import { add, remove, removeChecked } from './addremove';
+import {
+  add, edit, remove, removeChecked,
+} from './addremove';
 
 const storage = window.localStorage;
 const tasks = [];
@@ -40,6 +42,18 @@ function render(taskStorage) {
     checkbox.addEventListener('click', () => {
       isCompleted(checkbox.checked, task);
       storage.setItem('stored', JSON.stringify(taskStorage));
+    });
+
+    newP.addEventListener('click', () => {
+      newP.setAttribute('contenteditable', 'true');
+      edit(taskStorage, newP.innerText);
+    });
+
+    newP.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        edit(task, newP.innerText);
+        window.location.reload();
+      }
     });
   });
 }
