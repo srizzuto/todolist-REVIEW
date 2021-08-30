@@ -1,6 +1,6 @@
 # To-do list
 
-> In this project, I build a simple To do list using javascript and webpack.
+> This project it has as propouse only a review of my code partner.
 > 
 This project features ES6, Webpack.
 
