@@ -8,7 +8,8 @@ This project features ES6, Webpack.
 
 - HTML5, CSS3 and Javascript
 
-
+## Live Demo
+[Live demo version](https://srizzuto.github.io/To-do-list/)
 
 ### Prerequisites
 
